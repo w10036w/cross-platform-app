@@ -12,36 +12,21 @@ module.exports = {
   ],
   plugins: ['import', 'promise', 'react-hooks'],
   env: {
+    browser: true,
     es6: true,
     node: true,
   },
   settings: {
     'import/resolver': {
-      'babel-module': {
-        alias: {
-          '~graphql': './src/graphql',
-          '~env': './env.general.js',
-          '~const': './src/constants',
-        },
+      node: {
+        extensions: [
+          '.js',
+          '.jsx',
+          // '.tsx',
+          // '.ts',
+        ],
       },
     },
-  },
-  globals: {
-    // node
-    __dirname: false,
-    // browser
-    document: false,
-    window: false,
-    // resolver
-    // lodash
-    _filter: false,
-    _flow: false,
-    _pick: false,
-    _slice: false,
-    _sortBy: false,
-    _isEmpty: false,
-    _get: false,
-    _values: false,
   },
   rules: {
     // Possible Errors
@@ -49,7 +34,7 @@ module.exports = {
     'no-await-in-loop': 2,
     'no-compare-neg-zero': 2,
     'no-cond-assign': [2, 'always'],
-    'no-console': 2,
+    'no-console': 1,
     'no-constant-condition': 1,
     'no-control-regex': 2,
     'no-debugger': 1,
@@ -342,12 +327,12 @@ module.exports = {
     // 'react/no-deprecated': 2,
     // 'react/jsx-uses-react': 2,
     // 'react/jsx-uses-vars': 2,
+    'react/prop-types': 0,
 
     // import
-    'import/ignore': [/^~/],
-    'import/no-unresolved': [2, { commonjs: true, amd: true }],
-    'import/named': 2,
-    'import/default': 2,
+    'import/no-unresolved': [1, { commonjs: true, amd: true, ignore: ['^~.+$'] }],
+    'import/named': 0, // react-router-native { Route }
+    'import/default': 1,
     'import/no-webpack-loader-syntax': 2,
     'import/export': 2,
     'import/no-deprecated': 2,

@@ -8,27 +8,14 @@ const resolver = [
       '~env': './.env.general.js',
       '~graphql': './src/graphql',
       // ? R for regional, S for screen, C for components
-      // "^~RS/(.+)": ([, dir]) => `${__dirname}/src/screens/${dir}.ap`,
+      // '^~RS/(.+)': ([, dir]) => `${__dirname}/src/screens/${dir}.ap`,
       // "^~RC/(.+)": ([, dir]) => `${__dirname}/src/components/${dir}.ap`
     },
   },
 ]
 
-const provides = [
-  'provide-modules',
-  {
-    lodash: [
-      { filter: '_filter' },
-      { flow: '_flow' },
-      { pick: '_pick' },
-      { slice: '_slice' },
-      { sortBy: '_sortBy' },
-      { isEmpty: '_isEmpty' },
-      { get: '_get' },
-      { values: '_values' },
-    ],
-  },
-]
+// ! provide-modules incompatible with react native
+
 const stages = [
   // Stage 0
   '@babel/plugin-proposal-function-bind',
@@ -51,22 +38,14 @@ const stages = [
   ['@babel/plugin-proposal-class-properties', { loose: false }],
   '@babel/plugin-proposal-json-strings',
 ]
-// const cherryPick = [
-//   ['import', { libraryName: 'lodash', libraryDirectory: '', camel2DashComponentName: false }, 'lodash'],
-//   // ['import',
-//   // { libraryName: 'graphql-tools', libraryDirectory: 'dist', camel2DashComponentName: false }, "graphql-tools"],
-// ]
 const cherryPick = [
-  'transform-imports',
-  {
-    lodash: {
-      transform: 'lodash/${member}',
-      preventFullImport: true,
-    },
-  },
+  ['import', { libraryName: 'lodash', libraryDirectory: '', camel2DashComponentName: false }, 'lodash'],
+  ['import', { libraryName: '@ant-design/react-native' }],
 ]
 
-const plugins = [resolver, 'macros', cherryPick, provides, ...stages]
+// const plugins = [resolver, 'macros', cherryPick, provides, ...stages]
+const plugins = [resolver, 'macros', ...cherryPick, ...stages]
+
 const presets = [
   [
     '@babel/env',
@@ -77,7 +56,7 @@ const presets = [
       useBuiltIns: 'usage',
     },
   ],
-  'react-app',
+  ['react-app', { flow: false }],
   'module:metro-react-native-babel-preset',
 ]
 

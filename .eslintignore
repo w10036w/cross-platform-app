@@ -1,0 +1,10 @@
+.VSCodeCounter
+.vscode
+.git
+dist
+config
+scripts
+node_modules
+refer
+stubs
+!/.*

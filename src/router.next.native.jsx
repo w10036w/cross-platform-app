@@ -9,6 +9,7 @@ import ProgressBar from './components/global/progress-bar'
 import ScreenHome from './screens/home'
 import ScreenDashboard from './screens/dashboard'
 import ScreenProtected from './screens/protected'
+import ContProgress from './stores/progress.next'
 
 export const history = createMemoryHistory()
 // createMemoryHistory({
@@ -53,16 +54,19 @@ const styles = StyleSheet.create({
 })
 
 /* eslint-disable-next-line react/display-name */
-export default ({ progressBar }) => (
-  <Router history={history}>
-    <View style={styles.container}>
-      <ProgressBar percent={progressBar.state.pct} />
-      <NavigationHeader />
-      <Button onPress={() => progressBar.start()} title="restart progress bar" />
-      <Button onPress={() => progressBar.complete()} title="complete progress bar" />
-      <Route exact path="/" component={ScreenHome} />
-      <Route path="/dashboard" component={ScreenDashboard} />
-      <Route path="/protected" component={ScreenProtected} />
-    </View>
-  </Router>
-)
+export default () => {
+  const progressBar = ContProgress.useContainer()
+  return (
+    <Router history={history}>
+      <View style={styles.container}>
+        <ProgressBar percent={progressBar.pct} />
+        <NavigationHeader />
+        <Button onPress={() => progressBar.start()} title="restart progress bar" />
+        <Button onPress={() => progressBar.complete()} title="complete progress bar" />
+        <Route exact path="/" component={ScreenHome} />
+        <Route path="/dashboard" component={ScreenDashboard} />
+        <Route path="/protected" component={ScreenProtected} />
+      </View>
+    </Router>
+  )
+}

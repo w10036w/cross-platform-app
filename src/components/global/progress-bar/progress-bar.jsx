@@ -9,6 +9,7 @@ top: 0;
 left: 0;
 height: 4px;
 width: 100%;
+z-index: -99;
 `
 const barStyle = {
   borderColor: 'red',

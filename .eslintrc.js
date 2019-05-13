@@ -10,7 +10,7 @@ module.exports = {
     'prettier',
     'prettier/react',
   ],
-  plugins: ['import', 'promise', 'react-hooks'],
+  plugins: ['import', 'promise', 'react-hooks', 'emotion'],
   env: {
     browser: true,
     es6: true,
@@ -363,5 +363,11 @@ module.exports = {
 
     // react-hooks
     'react-hooks/rules-of-hooks': 1,
+
+    // emotion
+    'emotion/jsx-import': 1,
+    'emotion/no-vanilla': 1,
+    'emotion/import-from-emotion': 1,
+    'emotion/styled-import': 1,
   },
 }

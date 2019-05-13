@@ -2,8 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 import { Provider as UnstatedProvider, Subscribe } from 'unstated'
 import Routes from './router'
-import ProgressBarU from './components/global/progress-bar/unstate'
-// import ProgressBar from './components/global/progress-bar'
+import ProgressBarU from './stores/progress'
 import styles from './App.style'
 
 const App = () => (
@@ -13,7 +12,6 @@ const App = () => (
         {progressBar => <Routes progressBar={progressBar} />}
       </Subscribe>
     </UnstatedProvider>
-
   </View>
 )
 

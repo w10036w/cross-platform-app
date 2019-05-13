@@ -28,7 +28,7 @@ const asyncPages = [
 ]
 
 const asynLoad = e => loadable({
-  loader: () => import(`./${e}`),
+  loader: () => import(`./pages/${e}`),
   loading: () => 'Loadding', // TODO replace with placeholder
 })
 

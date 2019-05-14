@@ -1,1 +1,1 @@
-export { default } from './protected'
+export { default } from './protected.page'

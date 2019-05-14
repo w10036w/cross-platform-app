@@ -14,8 +14,25 @@
 
 - [react-native-web examples](http://necolas.github.io/react-native-web/examples/)
 - [primitives](https://hackernoon.com/building-cross-platform-applications-with-a-universal-component-library-e6292ca9a15)
-- [monorepos](https://hackernoon.com/4-ways-to-go-monorepo-in-2019-ea5d19fc1f08)
+- [ssr](https://medium.freecodecamp.org/server-side-rendering-your-react-app-in-three-simple-steps-7a82b95db82e)
 - [cross-platform-tradeoffs](https://github.com/necolas/react-native-web/issues/1215)
+- [fetch in hooks](https://www.robinwieruch.de/react-hooks-fetch-data/)
+
+## Todo
+
+- client
+  - [ ] Relay mock data
+    - [graphql-anywhere](https://www.npmjs.com/package/graphql-anywhere)
+  - [ ] [how to use fragments in relay](https://www.apollographql.com/docs/react/advanced/fragments)
+  - [ ] react-native-animatable
+  - [ ] state management floway rxjs effector
+  
+- web only
+  - [ ] client set head `Accept-Encoding: gzip`
+  - [ ] polyfill from Financial Time `<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>`
+
+- app only
+  - [ ] [code push](https://github.com/rccoder/blog/issues/27)
 
 ## Common Issues
 

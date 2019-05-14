@@ -43,9 +43,20 @@ const cherryPick = [
   ['import', { libraryName: '@ant-design/react-native' }],
 ]
 
-const plugins = [resolver, 'macros', ...cherryPick, ...stages]
+const plugins = ['relay', resolver, 'macros', ...cherryPick, ...stages]
 
-const presetsWeb = [['react-app', { flow: false }]]
+const presetsWeb = [
+  // [
+  //   '@babel/env',
+  //   {
+  //     targets: { node: true }, // ='current'
+  //     // modules: 'commonjs',  // default
+  //     corejs: '3',
+  //     useBuiltIns: 'usage',
+  //   },
+  // ],
+  ['react-app', { flow: false }],
+]
 const presetsApp = ['module:metro-react-native-babel-preset']
 const presets = platform === 'web' ? presetsWeb : presetsApp
 

@@ -9,8 +9,9 @@ module.exports = {
     'plugin:react/recommended',
     'prettier',
     'prettier/react',
+    'plugin:relay/recommended',
   ],
-  plugins: ['import', 'promise', 'react-hooks', 'emotion'],
+  plugins: ['import', 'promise', 'react-hooks', 'emotion', 'relay'],
   env: {
     browser: true,
     es6: true,
@@ -179,14 +180,14 @@ module.exports = {
     'no-sync': 0,
 
     // Stylistic Issues
-    'array-bracket-newline': [2, { multiline: true }],
-    'array-bracket-spacing': 2,
+    'array-bracket-newline': [1, { multiline: true }],
+    'array-bracket-spacing': 1,
     'array-element-newline': 0,
     'block-spacing': [2, 'always'],
     'brace-style': [2, '1tbs', { allowSingleLine: true }],
     'camelcase': [2, { properties: 'never' }],
     'capitalized-comments': 0,
-    'comma-dangle': [2, 'always-multiline'],
+    'comma-dangle': [1, 'always-multiline'],
     'comma-spacing': [2, { before: false, after: true }],
     'comma-style': [2, 'last'],
     'computed-property-spacing': 2,
@@ -252,7 +253,7 @@ module.exports = {
         ObjectPattern: { consistent: true },
       },
     ],
-    'object-curly-spacing': [2, 'always'],
+    'object-curly-spacing': [1, 'always'],
     'object-property-newline': [2, { allowMultiplePropertiesPerLine: true }],
     'one-var': [2, 'never'],
     'one-var-declaration-per-line': [2, 'always'],
@@ -369,5 +370,13 @@ module.exports = {
     'emotion/no-vanilla': 1,
     'emotion/import-from-emotion': 1,
     'emotion/styled-import': 1,
+
+    // relay
+    // 'relay/graphql-syntax': 'error',
+    // 'relay/compat-uses-vars': 'warn',
+    // 'relay/graphql-naming': 'error',
+    // 'relay/generated-flow-types': 'warn',
+    // 'relay/no-future-added-value': 'warn',
+    // 'relay/unused-fields': 'warn',
   },
 }

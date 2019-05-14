@@ -1,18 +1,15 @@
+/**
+ * stateless collection of non-business container
+ * e.g. theme, layout, idle
+ */
 import React from 'react'
-import { View } from 'react-native'
-import { Provider as UnstatedProvider, Subscribe } from 'unstated'
-import Routes from './router'
-import ProgressBarU from './stores/progress'
-import styles from './App.style'
+import { SafeAreaView } from 'react-native'
+import Business from './business'
 
 const App = () => (
-  <View style={styles.app}>
-    <UnstatedProvider>
-      <Subscribe to={[ProgressBarU]}>
-        {progressBar => <Routes progressBar={progressBar} />}
-      </Subscribe>
-    </UnstatedProvider>
-  </View>
+  <SafeAreaView>
+    <Business />
+  </SafeAreaView>
 )
 
 export default App

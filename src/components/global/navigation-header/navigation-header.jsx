@@ -1,16 +1,19 @@
-
 import React from 'react'
 import { withRouter, Link } from 'react-router-dom'
+import { NavStyle, NavItemStyle } from './navigation-header.style'
 
-export default withRouter(({ history, location }) =>
-// const currPage = location.pathname.substr(1) || 'home'
+export default withRouter(({ history, location }) => (
+  // const currPage = location.pathname.substr(1) || 'home'
 
-  (
-    <div>
-      <span>Navigation header </span>
-      <Link to="/">Home</Link>{' '}
-      <Link to="/dashboard">dashboard</Link>{' '}
+  <NavStyle>
+    <NavItemStyle>
+      <Link to="/">Home</Link>
+    </NavItemStyle>
+    <NavItemStyle>
+      <Link to="/dashboard">dashboard</Link>
+    </NavItemStyle>
+    <NavItemStyle>
       <Link to="/protected">protected</Link>
-    </div>
-  ))
-
+    </NavItemStyle>
+  </NavStyle>
+))

@@ -51,35 +51,3 @@ function useProgress() {
 }
 
 export default createContainer(useProgress)
-
-// class ProgressBarCo extends Container {
-//   state = {
-//     pct: 0,
-//   }
-
-//   rafId
-
-//   async start() {
-//     await this.setState({ pct: 0 })
-//     this.rafId = setInterval(() => {
-//       this.setState(({ pct }) => {
-//         if (pct < pausePct) return { pct: pct + normalStep }
-//         clearInterval(this.rafId)
-//         return { pct }
-//       })
-//     }, 16)
-//   }
-
-//   complete() {
-//     clearInterval(this.rafId)
-//     this.rafId = setInterval(() => {
-//       if (this.state.pct) {
-//         this.setState(({ pct }) => {
-//           if (pct < fullPct) return { pct: pct + largeStep }
-//           clearInterval(this.rafId)
-//           return { pct: 0 }
-//         })
-//       }
-//     }, 16)
-//   }
-// }

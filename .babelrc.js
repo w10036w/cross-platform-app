@@ -1,3 +1,5 @@
+const platform = process.env.PLATFORM
+
 const resolver = [
   'module-resolver',
   {
@@ -13,8 +15,6 @@ const resolver = [
     },
   },
 ]
-
-// ! provide-modules incompatible with react native
 
 const stages = [
   // Stage 0
@@ -43,33 +43,21 @@ const cherryPick = [
   ['import', { libraryName: '@ant-design/react-native' }],
 ]
 
-// const plugins = [resolver, 'macros', cherryPick, provides, ...stages]
 const plugins = [resolver, 'macros', ...cherryPick, ...stages]
 
-const presets = [
-  [
-    '@babel/env',
-    {
-      targets: { node: true }, // ='current'
-      // modules: 'commonjs',  // default
-      corejs: '3',
-      useBuiltIns: 'usage',
-    },
-  ],
-  ['react-app', { flow: false }],
-  'module:metro-react-native-babel-preset',
-]
+const presetsWeb = [['react-app', { flow: false }]]
+const presetsApp = ['module:metro-react-native-babel-preset']
+const presets = platform === 'web' ? presetsWeb : presetsApp
+
 
 // The env key will be taken from process.env.BABEL_ENV,
 // when this is not available then it uses process.env.NODE_ENV
 // if even that is not available then it defaults to "development".
-const env = {
-  production: {
-    plugins,
-    // https://github.com/babel/minify/tree/master/packages/babel-preset-minify#1-1-mapping-with-plugin
-    // presets: [...presets, 'babel-preset-minify'],
-    presets,
-  },
-}
+// const env = {
+//   production: {
+//     plugins,
+//     presets,
+//   },
+// }
 
-module.exports = { plugins, presets, env }
+module.exports = { plugins, presets }

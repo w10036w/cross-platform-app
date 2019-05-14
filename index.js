@@ -1,8 +1,9 @@
 import { AppRegistry } from 'react-native'
-import App from './src/App'
+import app from './src/app'
+import { name } from './app.json'
 
-AppRegistry.registerComponent('crossapp', () => App)
+AppRegistry.registerComponent(name, () => app)
 
-AppRegistry.runApplication('crossapp', {
+AppRegistry.runApplication(name, {
   rootTag: document.getElementById('root'),
 })

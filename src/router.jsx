@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import React from 'react'
 import { Button, Text, View } from 'react-native'
 import { Router, Switch, Route } from 'react-router-dom'
@@ -8,6 +7,7 @@ import { camelCase } from 'lodash'
 import NavigationHeader from './components/global/navigation-header'
 import ProgressBar from './components/global/progress-bar'
 import PageHome from './pages/home'
+import ProgressCxt from './stores/global/progress'
 
 export const history = createBrowserHistory()
 
@@ -41,25 +41,26 @@ export const routes = [
   })),
 ]
 
-/* eslint-disable-next-line react/display-name */
-export default ({ progressBar }) => (
-  <Router history={history}>
+const WebRouter = () => {
+  const progressBar = ProgressCxt.useContainer()
+  return (
+    <Router history={history}>
     <>
-      <ProgressBar percent={progressBar.state.pct} />
+      <ProgressBar percent={progressBar.pct} />
       <NavigationHeader/>
       <>
         <View>
-          <Text>Example of how to manage the pregression bar</Text>
+          <Text>Example of managing the progress bar</Text>
           <Text>when page mounts (e.g. componentDidMount()) trigger the start()</Text>
           <Text>after data fetched / rendered trigger complete()</Text>
+          <Button onPress={() => progressBar.start()} title="restart" />
+          <Button onPress={() => progressBar.complete()} title="complete" />
         </View>
-        <Button onPress={() => progressBar.start()} title="restart" />
-        <Button onPress={() => progressBar.complete()} title="complete" />
-
       </>
       <Switch>{routes.map(e => <Route key={e.key} {...e} />)}</Switch>
     </>
-  </Router>
-)
+    </Router>
+  )
+}
 
-
+export default WebRouter

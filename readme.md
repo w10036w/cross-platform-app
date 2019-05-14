@@ -1,4 +1,4 @@
-# Cross Platform App
+# Cross Platform React Starter
 
 ## Usage
 
@@ -12,6 +12,7 @@
 
 ## Knowledge
 
+- [react-native-web examples](http://necolas.github.io/react-native-web/examples/)
 - [primitives](https://hackernoon.com/building-cross-platform-applications-with-a-universal-component-library-e6292ca9a15)
 - [monorepos](https://hackernoon.com/4-ways-to-go-monorepo-in-2019-ea5d19fc1f08)
 - [cross-platform-tradeoffs](https://github.com/necolas/react-native-web/issues/1215)

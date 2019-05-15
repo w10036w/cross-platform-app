@@ -9,3 +9,5 @@ refer
 stubs
 !/.*
 src/archives
+crn_*
+rn-cli*

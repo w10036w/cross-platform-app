@@ -43,3 +43,4 @@
   - `watchman watch-del-all`
   - kill watchman daemon process
   - `rm -fr $TMPDIR/metro*`
+- [Error: `fsevents` unavailable](https://github.com/expo/expo/issues/854)

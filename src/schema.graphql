@@ -1,0 +1,45 @@
+# source: http://localhost:8000/graphql
+# timestamp: Thu May 16 2019 05:58:02 GMT+0800 (Singapore Standard Time)
+
+directive @uppercase on FIELD_DEFINITION
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the
+`date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO
+8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+"""
+A field whose value conforms to the standard calendar date format as specified
+in ISO_8601: https://en.wikipedia.org/wiki/ISO_8601#Calendar_dates.
+"""
+scalar DateYYMD
+
+type Parent {
+  child1: Int!
+  child2(userId: String): String
+}
+
+type Query {
+  todo(id: Int!, stubName: String, cache: Boolean = true): Todo
+  todos: [Todo!]
+  todosConnection(first: Int = 15, after: ID, filter: String, sort: String): TodosConnection!
+  parent: Parent
+}
+
+type Todo {
+  id: ID!
+  userId: Int!
+  title: String!
+  completed: Boolean!
+}
+
+type TodoEdge {
+  cursor: ID!
+  node: Todo
+}
+
+type TodosConnection {
+  edges: [TodoEdge!]
+}

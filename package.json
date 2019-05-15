@@ -15,7 +15,8 @@
     "build": "react-native bundle",
     "build:web": "PLATFORM=web node scripts/build.js",
     "test:web": "PLATFORM=web node scripts/test.js --env=jsdom",
-    "relay": "relay-compiler --src ./src --schema ./schema.graphql --extensions js jsx"
+    "schema": "graphql get-schema --project gateway --output ./src/schema.graphql",
+    "relay": "npm run schema && relay-compiler --src ./src --schema ./src/schema.graphql --extensions js jsx --watch"
   },
   "browserslist": {
     "development": [
@@ -97,6 +98,7 @@
     "babel-plugin-relay": "^2.0.0-rc.2",
     "babel-plugin-syntax-async-functions": "^6.13.0",
     "babel-plugin-transform-imports": "^1.5.1",
+    "babel-preset-minify": "^0.5.0",
     "babel-preset-react-app": "^9.0.0",
     "camelcase": "^5.2.0",
     "case-sensitive-paths-webpack-plugin": "2.2.0",

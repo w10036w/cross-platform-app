@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { createContainer } from 'unstated-next'
-import { graphql } from 'react-relay'
 
 function useQuery() {
   let data

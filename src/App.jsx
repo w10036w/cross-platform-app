@@ -1,14 +1,13 @@
-/**
- * stateless collection of non-business container
- * e.g. theme, layout, idle
- */
 import React from 'react'
 import { SafeAreaView } from 'react-native'
-import Business from './business'
+import Providers from './providers/root.provider'
+import Router from './router'
 
 const App = () => (
   <SafeAreaView>
-    <Business />
+    <Providers>
+      <Router/>
+    </Providers>
   </SafeAreaView>
 )
 

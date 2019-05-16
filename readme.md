@@ -17,6 +17,8 @@
 - [ssr](https://medium.freecodecamp.org/server-side-rendering-your-react-app-in-three-simple-steps-7a82b95db82e)
 - [cross-platform-tradeoffs](https://github.com/necolas/react-native-web/issues/1215)
 - [fetch in hooks](https://www.robinwieruch.de/react-hooks-fetch-data/)
+- [apollo vs relay](https://www.prisma.io/blog/relay-vs-apollo-comparing-graphql-clients-for-react-apps-b40af58c1534)
+- [cross-app](https://gh-viewer.gitbook.io/creating-a-cross-platform-app-using-react/adding-navigation)
 
 ## Todo
 
@@ -44,3 +46,14 @@
   - kill watchman daemon process
   - `rm -fr $TMPDIR/metro*`
 - [Error: `fsevents` unavailable](https://github.com/expo/expo/issues/854)
+
+## Archives
+
+<details>
+  <summary>Click to view</summary>
+    <h3>relay</h3>
+    <p>relay npm script</p>
+    <code>"relay": "npm run schema && relay-compiler --src ./src --schema ./src/schema.graphql --extensions js jsx --watch"</code>
+    <p>deps</p>
+    <code>react-relay relay-runtime relay-compiler babel-plugin-relay eslint-plugin-relay</code>
+</details>

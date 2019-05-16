@@ -43,7 +43,7 @@ const cherryPick = [
   ['import', { libraryName: '@ant-design/react-native' }],
 ]
 
-const plugins = ['relay', resolver, 'macros', ...cherryPick, ...stages]
+const plugins = [resolver, 'macros', ...cherryPick, ...stages]
 
 const presetsWeb = [
   // [

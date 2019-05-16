@@ -9,9 +9,8 @@ module.exports = {
     'plugin:react/recommended',
     'prettier',
     'prettier/react',
-    'plugin:relay/recommended',
   ],
-  plugins: ['import', 'promise', 'react-hooks', 'emotion', 'relay'],
+  plugins: ['import', 'promise', 'react-hooks', 'emotion'],
   env: {
     browser: true,
     es6: true,
@@ -370,13 +369,5 @@ module.exports = {
     'emotion/no-vanilla': 1,
     'emotion/import-from-emotion': 1,
     'emotion/styled-import': 1,
-
-    // relay
-    // 'relay/graphql-syntax': 'error',
-    // 'relay/compat-uses-vars': 'warn',
-    // 'relay/graphql-naming': 'error',
-    // 'relay/generated-flow-types': 'warn',
-    // 'relay/no-future-added-value': 'warn',
-    // 'relay/unused-fields': 'warn',
   },
 }

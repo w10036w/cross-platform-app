@@ -15,7 +15,8 @@
     "build": "react-native bundle",
     "build:web": "PLATFORM=web node scripts/build.js",
     "test:web": "PLATFORM=web node scripts/test.js --env=jsdom",
-    "schema": "graphql get-schema --project gateway --output ./src/schema.graphql"
+    "schema": "graphql get-schema --project gateway --output ./src/schema.graphql",
+    "voyager": "graphql voyager"
   },
   "browserslist": {
     "development": [

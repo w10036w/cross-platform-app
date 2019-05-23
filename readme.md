@@ -29,11 +29,11 @@
 ## Todo
 
 - client
-  - [ ] Relay mock data
+  - [ ] Apollo mock data
     - [graphql-anywhere](https://www.npmjs.com/package/graphql-anywhere)
-  - [ ] [how to use fragments in relay](https://www.apollographql.com/docs/react/advanced/fragments)
   - [ ] react-native-animatable
   - [ ] state management floway rxjs effector
+  - [ ] archive progress bar in state management. use loading circle or animation to prevent rerendering. (see **React context performance issues**)
   
 - web only
   - [ ] client set head `Accept-Encoding: gzip`
@@ -119,6 +119,30 @@ function Button({ size, color, children }) {
 // useEffect is async using requestIdleCallback
 // uselayoutEffect is sync
 ```
+
+## React context performance issues
+
+let's say a customHook created for unstated-next or constate, a progress bar store
+
+```js
+function useProgress() {
+  const [pct, setPct] = useState(0)
+
+  const start = () => {
+    // ... use setPct somewhere
+    // useCallback will not work, can test in archives/stores/global/progress.js
+  }
+
+  const complete = () => {
+    // ... use setPct somewhere
+  }
+
+  return { pct, start, complete }
+}
+```
+
+when used by consumer via useContext(), the `start` and `complete` is changed every time, and will cause rerender for their container.
+
 
 ## Common Issues
 

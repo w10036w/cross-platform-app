@@ -328,9 +328,10 @@ module.exports = {
     // 'react/jsx-uses-react': 2,
     // 'react/jsx-uses-vars': 2,
     'react/prop-types': 0,
+    'react/display-name': 1,
 
     // import
-    'import/no-unresolved': [1, { commonjs: true, amd: true, ignore: ['^~.+$'] }],
+    'import/no-unresolved': [1, { commonjs: true, amd: true, ignore: ['^~.+$', 'noctx'] }],
     'import/named': 0, // react-router-native { Route }
     'import/default': 1,
     'import/no-webpack-loader-syntax': 2,

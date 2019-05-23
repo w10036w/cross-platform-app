@@ -1,14 +1,17 @@
+/* eslint-disable react/jsx-key */
 /**
  * collection of business stores
  */
 import React from 'react'
-import ProgressCtx from '../stores/global/progress'
-
+import { Provider as TestProivder } from '../stores/global/test'
+import { Provider as CountProivder } from '../stores/global/count'
 
 const StoreProvider = ({ children }) => (
-  <ProgressCtx.Provider>
-    {children}
-  </ProgressCtx.Provider>
+  <TestProivder>
+    <CountProivder initValue={2}>
+      {children}
+    </CountProivder>
+  </TestProivder>
 )
 
 export default StoreProvider

@@ -4,11 +4,13 @@ const resolver = [
   'module-resolver',
   {
     alias: {
+      '~env': './.env.general.js',
       '~comp': './src/components',
       '~const': './src/constants',
       '~screen': './src/screens',
-      '~env': './.env.general.js',
-      '~graphql': './src/graphql',
+      '~gql': './src/graphql',
+      '~noctx': './src/stores',
+      '~router': './src/router',
       // ? R for regional, S for screen, C for components
       // '^~RS/(.+)': ([, dir]) => `${__dirname}/src/screens/${dir}.ap`,
       // "^~RC/(.+)": ([, dir]) => `${__dirname}/src/components/${dir}.ap`

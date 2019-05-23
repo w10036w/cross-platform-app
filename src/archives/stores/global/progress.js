@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import { createContainer } from 'unstated-next'
+import { setCtx } from '~noctx'
 
 const normalStep = 0.5
 const largeStep = 4
@@ -50,4 +50,7 @@ function useProgress() {
   return { pct, start, complete }
 }
 
-export default createContainer(useProgress)
+const store = setCtx('progress', useProgress)
+
+export const Provider = store.Provider
+export default store

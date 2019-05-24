@@ -1,13 +1,11 @@
 import React from 'react'
-import { Button, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import { Router, Switch, Route } from 'react-router-dom'
 import loadable from 'react-loadable'
 import { createBrowserHistory } from 'history'
-import { camelCase } from 'lodash'
+import { capitalize } from 'lodash'
 import NavigationHeader from './components/global/navigation-header'
-import ProgressBar from './components/global/progress-bar'
 import PageHome from './pages/home'
-import ProgressCxt from './stores/global/progress'
 
 export const history = createBrowserHistory()
 
@@ -25,42 +23,43 @@ export const history = createBrowserHistory()
 const asyncPages = [
   'protected',
   'dashboard',
+  'example-demo',
 ]
 
 const asynLoad = e => loadable({
   loader: () => import(`./pages/${e}`),
-  loading: () => 'Loadding', // TODO replace with placeholder
+  loading: () => 'Loading', // TODO replace with placeholder
 })
 
-export const routes = [
-  { key: 'PageHome', path: '/', exact: true, component: PageHome },
+export const routeMap = [
+  { key: 'Home', path: '/', exact: true, component: PageHome },
   ...asyncPages.map(e => ({
-    key: `Page${camelCase(e)}`,
+    key: `${capitalize(e)}`,
     path: `/${e}`,
     component: asynLoad(e),
   })),
 ]
 
-const WebRouter = () => {
-  const progressBar = ProgressCxt.useContainer()
-  return (
-    <Router history={history}>
+// eslint-disable-next-line react/display-name
+const Routing = React.memo(({ routes }) => (
+  <Switch>{routes.map(e => <Route key={e.key} {...e} />)}</Switch>
+))
+
+// todo use Portal for progress bar and nest
+const WebRouter = () => (
+  <Router history={history}>
     <>
-      <ProgressBar percent={progressBar.pct} />
       <NavigationHeader/>
       <>
         <View>
           <Text>Example of managing the progress bar</Text>
           <Text>when page mounts (e.g. componentDidMount()) trigger the start()</Text>
           <Text>after data fetched / rendered trigger complete()</Text>
-          <Button onPress={() => progressBar.start()} title="restart" />
-          <Button onPress={() => progressBar.complete()} title="complete" />
         </View>
       </>
-      <Switch>{routes.map(e => <Route key={e.key} {...e} />)}</Switch>
+      <Routing routes={routeMap} />
     </>
-    </Router>
-  )
-}
+  </Router>
+)
 
 export default WebRouter

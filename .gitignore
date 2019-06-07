@@ -59,8 +59,6 @@ buck-out/
 ios
 android
 
-package-lock.json
-
 # customize
 *.wip.js
 *.wip.jsx

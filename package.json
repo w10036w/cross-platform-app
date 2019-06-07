@@ -45,13 +45,12 @@
     "graphql": "^14.3.0",
     "graphql-tag": "^2.10.1",
     "history": "^4.9.0",
+    "iostore": "0.0.4",
     "lodash": "^4.17.11",
     "mobx": "^5.9.4",
     "native-base": "^2.12.1",
-    "noctx": "^0.1.1",
     "react": "16.8.6",
     "react-apollo": "^2.5.5",
-    "react-apollo-hooks": "^0.4.5",
     "react-dom": "16.8.6",
     "react-helmet": "^5.2.1",
     "react-intl": "^2.9.0",
@@ -64,9 +63,7 @@
     "react-router-cache-route": "^1.4.2",
     "react-router-dom": "^5.0.0",
     "react-router-native": "^5.0.0",
-    "react-spring": "^8.0.20",
-    "use-http": "^0.1.65",
-    "use-react-router": "^1.0.6"
+    "react-spring": "^8.0.20"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

@@ -5,7 +5,7 @@ import NavigationHeader from './components/global/navigation-header'
 import ScreenHome from './screens/home'
 import ScreenDashboard from './screens/dashboard'
 import ScreenProtected from './screens/protected'
-import history from '~store/history'
+import { history } from '~store'
 
 
 export const routes = [

@@ -4,7 +4,7 @@ import loadable from 'react-loadable'
 import { camelCase } from 'lodash'
 import NavigationHeader from './components/global/navigation-header'
 import PageHome from './pages/home'
-import history from '~store/history'
+import { history } from '~store'
 
 // history.listen((location, action) => {
 //   console.log(`[history] ${action} ${location.pathname}, ${location.state}`)

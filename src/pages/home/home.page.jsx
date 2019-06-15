@@ -1,9 +1,9 @@
 import React from 'react'
-import { Image, Text, View } from 'react-native'
-import { history } from '~router'
+import { Image, Text, View } from 'react-primitives'
+import history from '~store/history'
+import styles from './style'
 import { START } from '~const'
 import TestNode from './test-node'
-import styles from './style'
 
 const logoUri = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png'
 

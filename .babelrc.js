@@ -8,9 +8,10 @@ const resolver = [
       '~comp': './src/components',
       '~const': './src/constants',
       '~screen': './src/screens',
-      '~gql': './src/graphql',
-      '~noctx': './src/stores',
-      '~router': './src/router',
+      '~page': './src/pages',
+      '~store': './src/stores',
+      '~helper': './src/helpers',
+      '~graphql': './src/graphql',
       // ? R for regional, S for screen, C for components
       // '^~RS/(.+)': ([, dir]) => `${__dirname}/src/screens/${dir}.ap`,
       // "^~RC/(.+)": ([, dir]) => `${__dirname}/src/components/${dir}.ap`
@@ -18,47 +19,12 @@ const resolver = [
   },
 ]
 
-const stages = [
-  // Stage 0
-  '@babel/plugin-proposal-function-bind',
-  // Stage 1
-  '@babel/plugin-proposal-export-default-from',
-  '@babel/plugin-proposal-logical-assignment-operators',
-  ['@babel/plugin-proposal-optional-chaining', { loose: false }],
-  ['@babel/plugin-proposal-pipeline-operator', { proposal: 'minimal' }],
-  ['@babel/plugin-proposal-nullish-coalescing-operator', { loose: false }],
-  '@babel/plugin-proposal-do-expressions',
-  // Stage 2
-  ['@babel/plugin-proposal-decorators', { legacy: true }],
-  '@babel/plugin-proposal-function-sent',
-  '@babel/plugin-proposal-export-namespace-from',
-  '@babel/plugin-proposal-numeric-separator',
-  '@babel/plugin-proposal-throw-expressions',
-  // Stage 3
-  '@babel/plugin-syntax-dynamic-import',
-  '@babel/plugin-syntax-import-meta',
-  ['@babel/plugin-proposal-class-properties', { loose: false }],
-  '@babel/plugin-proposal-json-strings',
-]
-const cherryPick = [
-  ['import', { libraryName: 'lodash', libraryDirectory: '', camel2DashComponentName: false }, 'lodash'],
-  ['import', { libraryName: '@ant-design/react-native' }],
-]
+// eslint-disable-next-line max-len
+const cherryPick = [['import', { libraryName: 'lodash', libraryDirectory: '', camel2DashComponentName: false }, 'lodash']]
 
-const plugins = [resolver, 'macros', ...cherryPick, ...stages]
+const plugins = [resolver, 'macros', ...cherryPick]
 
-const presetsWeb = [
-  // [
-  //   '@babel/env',
-  //   {
-  //     targets: { node: true }, // ='current'
-  //     // modules: 'commonjs',  // default
-  //     corejs: '3',
-  //     useBuiltIns: 'usage',
-  //   },
-  // ],
-  ['react-app'],
-]
+const presetsWeb = [['react-app']]
 const presetsApp = ['module:metro-react-native-babel-preset']
 const presets = platform === 'web' ? presetsWeb : presetsApp
 

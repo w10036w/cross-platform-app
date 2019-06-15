@@ -3,13 +3,13 @@
  * e.g. theme, layout, idle
  */
 import React from 'react'
-import { SafeAreaView } from 'react-native'
-import Business from './business'
+import StyleProvider from './providers/style.provider'
+import Router from './router'
 
 const App = () => (
-  <SafeAreaView>
-    <Business />
-  </SafeAreaView>
+  <StyleProvider>
+    <Router/>
+  </StyleProvider>
 )
 
 export default App

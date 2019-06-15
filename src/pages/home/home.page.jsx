@@ -1,6 +1,6 @@
 import React from 'react'
 import { Image, Text, View } from 'react-primitives'
-import { history } from '../../router'
+import history from '~store/history'
 import styles from './style'
 import { START } from '~const'
 

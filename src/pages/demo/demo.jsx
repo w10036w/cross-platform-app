@@ -1,11 +1,12 @@
 import React from 'react'
 import { View } from 'react-native'
-import FetchExample from '~comp/_example'
+// import FetchExample from '~comp/_example'
 
 // todo why is this rerendered for progress update
 const PageExampleDemo = () => (
   <View>
-    <FetchExample/>
+    <div>hello</div>
+    {/* <FetchExample/> */}
   </View>
 )
 

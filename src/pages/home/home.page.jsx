@@ -3,11 +3,10 @@ import { Image, Text, View } from 'react-primitives'
 import history from '~store/history'
 import styles from './style'
 import { START } from '~const'
-import TestNode from './test-node'
+// import TestNode from './test-node'
 
 const logoUri = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png'
 
-// todo why is this rerendered for progress update
 const PageHome = () => (
   <div>
     <h1>Home Page</h1>
@@ -15,7 +14,6 @@ const PageHome = () => (
     <div onClick={() => history.push('/dashboard')}><u>go to dashboard</u></div>
     <div onClick={() => history.push('/protected')}><u>go to protected</u></div>
     <View style={styles.header}>
-      <TestNode/>
       <Image
         accessibilityLabel="React logo"
         source={{ uri: logoUri }}

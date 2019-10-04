@@ -24,7 +24,7 @@ export default withRouter(({ history, location }) => {
         </Link>
       </NavItemStyle>
       <NavItemStyle>
-        <Link to="/example-demo" underlayColor="#f0f4f7">
+        <Link to="/demo" underlayColor="#f0f4f7">
           <Text>example-demo</Text>
         </Link>
       </NavItemStyle>

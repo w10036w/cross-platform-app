@@ -10,7 +10,7 @@ import { history } from '~store'
 const asyncPages = [
   'protected',
   'dashboard',
-  'example-demo',
+  'demo',
 ]
 
 const asynLoad = e => loadable({

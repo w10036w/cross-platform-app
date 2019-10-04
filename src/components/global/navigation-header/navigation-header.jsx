@@ -1,6 +1,6 @@
 import React from 'react'
 import { withRouter, Link } from 'react-router-dom'
-import { routeMap } from '~router'
+import { routeMap } from '../../../router'
 import { NavStyle, NavItemStyle } from './navigation-header.style'
 
 const Tabs = ({ routes }) => (

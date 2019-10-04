@@ -1,24 +1,10 @@
 import React from 'react'
-import { InMemoryCache } from 'apollo-cache-inmemory'
-import { ApolloClient } from 'apollo-client'
-import { ApolloLink } from 'apollo-link'
-import { BatchHttpLink } from 'apollo-link-batch-http'
-import { ApolloProvider as Provider } from 'react-apollo'
-
-const inMemoryCache = new InMemoryCache()
-const link = new BatchHttpLink({
-  uri: 'http://localhost:8000/graphql',
-  includeExtensions: false,
-  // headers: {},
-  // credentials: 'include'  // for cookie
-  batchInterval: 100,
-  batchMax: 20,
-})
+import { ApolloClient } from 'apollo-boost'
+import { ApolloProvider as Provider } from '@apollo/react-hooks'
 
 const client = new ApolloClient({
-  cache: inMemoryCache,
   // connectToDevTools: true,
-  link: ApolloLink.from([link]),
+  link: 'https://48p1r2roz4.sse.codesandbox.io',
   // for SSR
   // ssrForceFetchDelay: 100,
   // ssrMode: true,

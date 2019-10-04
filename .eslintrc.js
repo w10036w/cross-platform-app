@@ -331,7 +331,7 @@ module.exports = {
     'react/display-name': 1,
 
     // import
-    'import/no-unresolved': [1, { commonjs: true, amd: true, ignore: ['^~.+$', 'noctx'] }],
+    'import/no-unresolved': [1, { commonjs: true, amd: true, ignore: ['^~.+$'] }],
     'import/named': 0, // react-router-native { Route }
     'import/default': 1,
     'import/no-webpack-loader-syntax': 2,
